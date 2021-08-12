@@ -1,18 +1,14 @@
-version: 2.1
 jobs:
   compile:
    docker:
-      - image: z4nyx/docker:latest
+      - image: xyzuan/xdocker:latest
    steps:
       - run:
           command: |
-           git config --global user.name "xyzuan"
-           git config --global user.email "xyzuan@webmail.umm.ac.id"
            git config --global color.ui false
            git clone --depth=1 https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME} -b ${CIRCLE_BRANCH} platina
-           bash platina/.circleci/build.sh
+           bash plaatina/.circleci/build.sh
 workflows:
-  version: 2.1
   cooking:
     jobs:
       - compile

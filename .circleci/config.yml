@@ -1,3 +1,4 @@
+version: 2.1
 jobs:
   compile:
    docker:
@@ -7,8 +8,9 @@ jobs:
           command: |
            git config --global color.ui false
            git clone --depth=1 https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME} -b ${CIRCLE_BRANCH} platina
-           bash plaatina/.circleci/build.sh
+           bash platina/.circleci/build.sh
 workflows:
+  version: 2.1
   cooking:
     jobs:
       - compile
